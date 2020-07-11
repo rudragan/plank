@@ -1,0 +1,94 @@
+.navbar-custom {
+  background-color: black;
+}
+
+.navbar-brand {
+  font-size: larger;
+}
+
+body {
+  font-family: copperplate;
+  font-size: larger;
+  color: azure;
+  background-image: url(back.jpg);
+}
+
+#display {
+  background-image: url(brick.jpg);
+  width: 90%;
+  height: 500px;
+  border:  5px solid black;
+  border-radius: 5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  float: center;
+}
+
+#user_message {
+  width: 82.5%;
+  border-radius: 5px;
+  height: inherit;
+}
+
+@keyframes fadeIn { 
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.my-msg {
+  text-align: right;
+  margin-right: 3px;
+  margin-left: 10px;
+  border: 3px solid gray;
+  border-radius: 8px;
+  padding: 10px;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.others-msg {
+  margin-left: 3px;
+  margin-right: 10px;
+  border: 3px solid darkgray;
+  border-radius: 8px;
+  padding: 10px;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.my-msg .my-username {
+  color: red;
+}
+
+.timestamp {
+  font-size: small;
+  color: gray;
+}
+
+.others-msg .other-username {
+  color: blue;
+}
+
+#sidebar .list-group .select-room {
+  margin: 3px;
+}
+
+#input-area {
+  margin-top: 3px;
+}
+
+.system-msg {
+  text-align: center;
+  font-weight: bold;
+  color: gray;
+}
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Chatroom | Plank
+        </title>
+    </head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src='{{url_for("static",filename="scripts/socketio.js")}}'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='../static/styles1.css'>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+            <a class="navbar-brand" href="#">Plank</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="btn btn-success my-2 my-sm-0" type="button" onclick="window.location.href='/logout';" value="Logout" />
+              </form>
+            </div>
+          </nav>
+          <br>
+          
+
+          <br>
+    <div class="container"> 
+        <div id='main-section'>
+            <div class='row'>
+                <div class='col-md-4 col-sm-4 col-xs-4'>
+            <nav id='sidebar'>
+                <h4 style="text-align: center; font-size: 50px;">Rooms</h4>
+                {% for room in rooms %}
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action list-group-item-dark select-room">{{ room|title }}</a>
+                  </div>
+                {% endfor %}
+                <div id='create-area'>
+                  <form action="/create" method="POST">
+                <input type="text" name='new-room' placeholder="New Room">
+                <button type='submit'  class='btn btn-primary ' name='create'>Create</button>
+                {% if message %}
+                    <p  style="color: red; ">{{ message | safe}} </p>
+                {% endif %}
+
+                  </form>
+            </div>
+            </nav>
+        </div>
+        <div class='col-md-8 col-sm-8 col-xs-8'>
+            <h4 style="text-align: center; font-size: 50px; padding-right: 50px;">Welcome, <span id='get_username' style="color: red;">{{ username }}</span></h4>
+            <div id='rightside-panel'>
+                <div id='display'>
+
+                </div>
+                <div id='input-area'>
+                  
+                    <input type='text' id='user_message' placeholder="type here" autocomplete="off">
+                    <button type='button'  class='btn btn-primary ' id='send_message'><i class="fa fa-send-o" ></i></button>
+                    
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+            const username = `{{ username }}`;
+        </script>
+
+
+
+
+    </body>
+</html>
+
